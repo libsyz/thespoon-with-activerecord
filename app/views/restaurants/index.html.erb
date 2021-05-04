@@ -1,0 +1,10 @@
+
+<h1> Let's see some restaurants</h1>
+
+<div class="row">
+
+<% @restaurants.each do |resto| %>
+  <%= render 'resto_card', resto: resto %>
+<% end %>
+
+</div>

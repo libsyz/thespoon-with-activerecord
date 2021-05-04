@@ -1,0 +1,15 @@
+<div class="col-3  mb-3">
+  <div class="resto-card">
+    <div class="resto-display">
+      <img class="resto-image" src="<%= resto.image_url %>" alt="">
+       <div class="delivery-time">
+          <span class="min-time" ><%= resto.min_delivery_time %> min </span> - <span class="max-time"><%= resto.max_delivery_time %> min</span>
+      </div>
+    </div>
+    <div class="resto-info">
+      <p class="resto-name font-weight-bold mt-2 mb-0"> <%= resto.name %></p>
+      <i class="bi bi-star-fill text-success"></i> <span class="text-success"> <%= resto.rating.round(1) %> </span> <span class="review-count text-muted"> (<%= resto.review_count %>)</span> <span class="resto-categories text-muted"> <%= resto.categories.join(" * ") %></span>
+      <span class="resto-distance text-muted"> <%= humanized_km(resto.distance_meters) %> </span> <span class="resto-delivery-price text-muted"> <%= humanized_price(resto.delivery_price_cents) %> </span>
+    </div>
+  </div>
+</div>
