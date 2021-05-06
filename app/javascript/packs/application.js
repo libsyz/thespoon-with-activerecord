@@ -6,6 +6,14 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import "channels"
+// import 'bootstrap';
+import { initScrollToSearch } from './../plugins/init_scroll_to_search.js';
 
 Rails.start()
 Turbolinks.start()
+
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  initScrollToSearch();
+});

@@ -1,6 +1,23 @@
 
-<h3> This is a shiny new restaurant in town</h3>
 
-<h4> <%= @restaurant.name %> </h4>
-<h4> <%= @restaurant.address %> </h4>
-<h4> rating: <%= @restaurant.rating %> </h4>
+<div class="resto-show">
+
+    <%= render 'resto_card', resto: @restaurant  %>
+
+
+  <%= simple_form_for([ @restaurant,@review]) do |f| %>
+    <%= f.input :content %>
+    <%= f.submit "create review" %>
+  <% end %>
+<div class="resto-reviews w-75">
+  <ul>
+    <% @restaurant.reviews.each do |rev| %>
+    <li>
+     <p> <%= rev.content %> </p>
+      <p class="text-muted"> <%= rev.user.name %> </p>
+    </li>
+    <% end %>
+  </ul>
+</div>
+</div>
+

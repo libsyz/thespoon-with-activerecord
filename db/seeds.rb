@@ -1,7 +1,10 @@
 
 require 'faker'
 
+Review.destroy_all
+User.destroy_all
 Restaurant.destroy_all
+
 
 resto_images = [ "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
                  "https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
@@ -38,3 +41,25 @@ end
     image_url: resto_images.sample
   )
 end
+
+
+
+
+30.times do
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email
+    )
+end
+
+
+100.times do
+  Review.create(
+    content: Faker::ChuckNorris.fact,
+    user: User.all.sample,
+    restaurant: Restaurant.all.sample
+    )
+end
+
+
+
